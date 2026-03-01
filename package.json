@@ -20,17 +20,17 @@
     "lint-staged": "lint-staged"
   },
   "dependencies": {
-    "@types/node": "^22.5.2",
-    "concurrently": "^8.2.2",
-    "typescript": "^5.0.0",
-    "wait-on": "^8.0.1"
+    "@types/node": "^25.3.3",
+    "concurrently": "^9.2.1",
+    "typescript": "^5.9.3",
+    "wait-on": "^9.0.4"
   },
   "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
-    "dotenv": "^17.2.3",
+    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
+    "dotenv": "^17.3.1",
     "husky": "^9.1.7",
-    "lint-staged": "^15.2.10",
-    "prettier": "^3.5.3",
+    "lint-staged": "^16.3.1",
+    "prettier": "^3.8.1",
     "ts-node": "^10.9.2",
     "uuid": "^13.0.0"
   },
