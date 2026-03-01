@@ -55,4 +55,5 @@ export interface Product {
   featured?: boolean;
   images: Image[];
   categories?: Category[];
+  [key: string]: unknown;
 }
