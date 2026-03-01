@@ -7,8 +7,8 @@ import { IoIosMenu } from 'react-icons/io';
 import { IoIosClose } from 'react-icons/io';
 
 import { LocaleSwitcher } from '../locale-switcher';
-import { Button } from '@/components/elements/button';
 import { Logo } from '@/components/logo';
+import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 interface Props {
@@ -127,10 +127,11 @@ export const MobileNavbar = ({
                 variant={
                   index === rightNavbarItems.length - 1 ? 'primary' : 'simple'
                 }
-                as={Link}
-                href={`/${locale}${item.URL}`}
+                asChild
               >
-                {item.text}
+                <Link href={`/${locale}${item.URL}`}>
+                  {item.text}
+                </Link>
               </Button>
             ))}
           </div>

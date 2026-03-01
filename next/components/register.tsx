@@ -7,7 +7,7 @@ import {
 import React from 'react';
 
 import { Container } from './container';
-import { Button } from './elements/button';
+import { Button } from '@/components/ui/button';
 import { Logo } from './logo';
 
 export const Register = () => {
