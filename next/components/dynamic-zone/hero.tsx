@@ -18,7 +18,12 @@ export const Hero = ({
 }: {
   heading: string;
   sub_heading: string;
-  CTAs: { id: number; URL: string; text: string; variant?: 'primary' | 'outline' | 'simple' | 'muted' }[];
+  CTAs: {
+    id: number;
+    URL: string;
+    text: string;
+    variant?: 'primary' | 'outline' | 'simple' | 'muted';
+  }[];
   locale: string;
 }) => {
   return (

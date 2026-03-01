@@ -14,7 +14,7 @@ export const Logo = ({ image, locale }: { image?: Image; locale?: string }) => {
       >
         <BlurImage
           src={strapiImage(image?.url)}
-          alt={image.alternativeText}
+          alt={image.alternativeText || 'Logo'}
           width={200}
           height={200}
           className="h-10 w-10 rounded-xl mr-2"

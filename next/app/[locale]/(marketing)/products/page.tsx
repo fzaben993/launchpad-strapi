@@ -38,7 +38,10 @@ export default async function Products(props: {
   const products = await fetchCollectionType<Product[]>('products');
 
   const localizedSlugs = pageData.localizations?.reduce(
-    (acc: Record<string, string>, localization: { locale: string; slug: string }) => {
+    (
+      acc: Record<string, string>,
+      localization: { locale: string; slug: string }
+    ) => {
       acc[localization.locale] = 'products';
       return acc;
     },

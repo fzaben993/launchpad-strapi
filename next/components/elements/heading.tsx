@@ -13,7 +13,7 @@ export const Heading = ({
 }: {
   className?: string;
   as?: any;
-  children: any;
+  children: React.ReactNode;
   size?: 'sm' | 'md' | 'xl' | '2xl';
   props?: React.HTMLAttributes<HTMLHeadingElement>;
 } & MotionProps &
@@ -35,7 +35,7 @@ export const Heading = ({
       )}
       {...props}
     >
-      <Balancer>{children}</Balancer>
+      <Balancer>{children || ' '}</Balancer>
     </Tag>
   );
 };

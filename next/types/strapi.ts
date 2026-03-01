@@ -1,8 +1,8 @@
 export interface StrapiData {
   id: number;
-  [key: string]: any; // Allow for any additional fields
+  [key: string]: unknown; // Allow for any additional fields
 }
 
-export interface StrapiResponse {
-  data: StrapiData | StrapiData[];
+export interface StrapiResponse<T = StrapiData> {
+  data: T | T[];
 }

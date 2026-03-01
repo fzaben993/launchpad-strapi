@@ -16,7 +16,11 @@ export const CTA = ({
 }: {
   heading: string;
   sub_heading: string;
-  CTAs: { URL: string; text: string; variant: 'primary' | 'outline' | 'simple' | 'muted' }[];
+  CTAs: {
+    URL: string;
+    text: string;
+    variant: 'primary' | 'outline' | 'simple' | 'muted';
+  }[];
   locale: string;
 }) => {
   return (

@@ -9,10 +9,7 @@ export const truncate = (text: string, length: number) => {
   return text.length > length ? text.slice(0, length) + '...' : text;
 };
 
-export const formatNumber = (
-  number: number,
-  locale = 'en-US'
-): string => {
+export const formatNumber = (number: number, locale = 'en-US'): string => {
   return new Intl.NumberFormat(locale, {
     style: 'decimal',
     minimumFractionDigits: 0,

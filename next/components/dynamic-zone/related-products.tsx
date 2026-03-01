@@ -3,7 +3,6 @@
 import React from 'react';
 
 import { ProductItems } from '@/components/products/product-items';
-
 import type { Product } from '@/types/types';
 
 export const RelatedProducts = ({

@@ -7,16 +7,26 @@ export const Preview = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const handleMessage = async (message: MessageEvent<any>) => {
+    const handleMessage = async (
+      message: MessageEvent<{
+        type?: string;
+        payload?: { script?: string };
+      } | null>
+    ) => {
       const { origin, data } = message;
 
       if (origin !== process.env.NEXT_PUBLIC_API_URL) {
         return;
       }
 
-      if (data.type === 'strapiUpdate') {
+      if (data && data.type === 'strapiUpdate') {
         router.refresh();
-      } else if (data.type === 'strapiScript') {
+      } else if (
+        data &&
+        data.type === 'strapiScript' &&
+        data.payload &&
+        data.payload.script
+      ) {
         const script = window.document.createElement('script');
         script.textContent = data.payload.script;
         window.document.head.appendChild(script);

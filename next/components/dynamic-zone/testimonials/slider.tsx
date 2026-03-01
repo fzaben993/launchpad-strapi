@@ -17,7 +17,11 @@ interface Testimonial {
   };
 }
 
-export const TestimonialsSlider = ({ testimonials }: { testimonials: Testimonial[] }) => {
+export const TestimonialsSlider = ({
+  testimonials,
+}: {
+  testimonials: Testimonial[];
+}) => {
   const [active, setActive] = useState<number>(0);
   const [autorotate, setAutorotate] = useState<boolean>(true);
   const testimonialsRef = useRef<HTMLDivElement>(null);

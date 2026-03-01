@@ -17,7 +17,16 @@ export const Testimonials = ({
 }: {
   heading: string;
   sub_heading: string;
-  testimonials: object;
+  testimonials: {
+    id: number;
+    text: string;
+    user: {
+      firstname: string;
+      lastname: string;
+      job: string;
+      image: { url: string };
+    };
+  }[];
 }) => {
   return (
     <div className="relative">

@@ -4,21 +4,43 @@ export interface Category {
 
 export interface Image {
   url: string;
-  alternativeText: string;
+  alternativeText?: string;
+}
+
+export interface Localization {
+  locale: string;
+}
+
+export interface DynamicZone {
+  id: number;
+  __component: string;
+  [key: string]: unknown;
+}
+
+export interface Plan {
+  name: string;
+  price: number;
+  features: string[];
+}
+
+export interface Perk {
+  name: string;
+  description: string;
 }
 
 export interface Article {
   title: string;
   description: string;
   slug: string;
-  content: string;
-  dynamic_zone: any[];
+  content: import('@strapi/blocks-react-renderer').BlocksContent;
+  dynamic_zone: DynamicZone[];
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
   locale: string;
   image: Image;
   categories: Category[];
+  localizations?: { locale: string; slug: string }[];
 }
 
 export interface Product {
@@ -27,10 +49,10 @@ export interface Product {
   slug: string;
   description: string;
   price: number;
-  plans: any[];
-  perks: any[];
-  dynamic_zone: any[];
+  plans: Plan[];
+  perks: Perk[];
+  dynamic_zone: DynamicZone[];
   featured?: boolean;
-  images: any[];
-  categories?: any[];
+  images: Image[];
+  categories?: Category[];
 }

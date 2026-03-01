@@ -2,8 +2,10 @@ import { unstable_noStore as noStore } from 'next/cache';
 import Image from 'next/image';
 import { ComponentProps } from 'react';
 
-interface StrapiImageProps
-  extends Omit<ComponentProps<typeof Image>, 'src' | 'alt'> {
+interface StrapiImageProps extends Omit<
+  ComponentProps<typeof Image>,
+  'src' | 'alt'
+> {
   src: string;
   alt: string | null;
 }
