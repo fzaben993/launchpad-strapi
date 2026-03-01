@@ -7,10 +7,21 @@ import Marquee from 'react-fast-marquee';
 import { StrapiImage } from '@/components/ui/strapi-image';
 import { cn } from '@/lib/utils';
 
+interface Testimonial {
+  id: number;
+  text: string;
+  user: {
+    firstname: string;
+    lastname: string;
+    job: string;
+    image: { url: string };
+  };
+}
+
 export const TestimonialsMarquee = ({
   testimonials,
 }: {
-  testimonials: any;
+  testimonials: Testimonial[];
 }) => {
   const levelOne = testimonials.slice(0, 8);
   const levelTwo = testimonials.slice(8, 16);
@@ -20,7 +31,7 @@ export const TestimonialsMarquee = ({
         <div className="h-full absolute w-20 left-0 inset-y-0 z-30 bg-gradient-to-r from-charcoal to-transparent" />
         <div className="h-full absolute w-20 right-0 inset-y-0 z-30 bg-gradient-to-l from-charcoal to-transparent" />
         <Marquee>
-          {levelOne.map((testimonial: any, index: any) => (
+          {levelOne.map((testimonial: Testimonial, index: number) => (
             <Card
               key={`testimonial-${testimonial.id}-${index}`}
               className="max-w-xl h-60 mx-4"
@@ -51,7 +62,7 @@ export const TestimonialsMarquee = ({
         <div className="h-full absolute w-20 left-0 inset-y-0 z-30 bg-gradient-to-r from-charcoal to-transparent" />
         <div className="h-full absolute w-20 right-0 inset-y-0 z-30 bg-gradient-to-l from-charcoal to-transparent" />
         <Marquee direction="right" speed={20}>
-          {levelTwo.map((testimonial: any, index: any) => (
+          {levelTwo.map((testimonial: Testimonial, index: number) => (
             <Card
               key={`testimonial-${testimonial.id}-${index}`}
               className="max-w-xl h-60 mx-4"

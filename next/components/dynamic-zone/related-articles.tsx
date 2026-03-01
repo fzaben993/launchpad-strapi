@@ -4,15 +4,16 @@ import React from 'react';
 
 import { BlogCardVertical } from '../blog-card';
 
+import type { Article } from '@/types/types';
+
 export const RelatedArticles = ({
   heading,
-  sub_heading,
   articles,
   locale,
 }: {
   heading: string;
-  sub_heading: string;
-  articles: any[];
+  sub_heading?: string;
+  articles: Article[];
   locale: string;
 }) => {
   return (

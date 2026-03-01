@@ -17,7 +17,7 @@ export const Launches = ({
 }: {
   heading: string;
   sub_heading: string;
-  launches: any[];
+  launches: { mission_number: string; title: string; description: string }[];
 }) => {
   const launchesWithDecoration = launches.map((entry) => ({
     ...entry,

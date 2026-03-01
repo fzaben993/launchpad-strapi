@@ -6,13 +6,13 @@ import { ReactNode } from 'react';
 
 import { cn } from '@/lib/utils';
 
-type Props = {
+interface Props {
   href: never;
   children: ReactNode;
   active?: boolean;
   className?: string;
   target?: string;
-};
+}
 
 export function NavbarItem({
   children,

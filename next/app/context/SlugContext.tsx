@@ -2,14 +2,14 @@
 
 import React, { createContext, useContext, useReducer } from 'react';
 
-type State = {
+interface State {
   localizedSlugs: Record<string, string>;
-};
+}
 
-type Action = {
+interface Action {
   type: 'SET_SLUGS';
   payload: Record<string, string>;
-};
+}
 
 const SlugContext = createContext<{
   state: State;

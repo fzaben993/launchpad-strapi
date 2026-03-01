@@ -17,7 +17,7 @@ import { SkeletonFour } from './skeletons/fourth';
 import { SkeletonTwo } from './skeletons/second';
 import { SkeletonThree } from './skeletons/third';
 
-const wordToNumber: { [key: string]: number } = {
+const wordToNumber: Record<string, number> = {
   one: 1,
   two: 2,
   three: 3,
@@ -37,10 +37,10 @@ export const Features = ({
 }: {
   heading: string;
   sub_heading: string;
-  globe_card: any;
-  ray_card: any;
-  graph_card: any;
-  social_media_card: any;
+  globe_card: { span: string; title: string; description: string };
+  ray_card: { span: string; title: string; description: string };
+  graph_card: { span: string; title: string; description: string };
+  social_media_card: { span: string; title: string; description: string };
 }) => {
   return (
     <GradientContainer className="md:my-20">

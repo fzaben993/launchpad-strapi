@@ -14,7 +14,7 @@ export const Brands = ({
 }: {
   heading: string;
   sub_heading: string;
-  logos: any[];
+  logos: { title?: string; image: { url: string; alternativeText: string } }[];
 }) => {
   const middleIndex = Math.floor(logos.length / 2);
   const firstHalf = logos.slice(0, middleIndex);
@@ -22,7 +22,7 @@ export const Brands = ({
   const logosArraySplitInHalf = [firstHalf, secondHalf];
 
   // State to track the current logo set
-  let [stateLogos, setLogos] = useState(logosArraySplitInHalf);
+  const [stateLogos, setLogos] = useState(logosArraySplitInHalf);
   const [activeLogoSet, setActiveLogoSet] = useState(stateLogos[0]);
 
   const flipLogos = () => {

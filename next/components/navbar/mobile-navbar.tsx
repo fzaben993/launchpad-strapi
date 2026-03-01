@@ -11,7 +11,7 @@ import { Button } from '@/components/elements/button';
 import { Logo } from '@/components/logo';
 import { cn } from '@/lib/utils';
 
-type Props = {
+interface Props {
   leftNavbarItems: {
     URL: string;
     text: string;
@@ -24,7 +24,7 @@ type Props = {
   }[];
   logo: any;
   locale: string;
-};
+}
 
 export const MobileNavbar = ({
   leftNavbarItems,

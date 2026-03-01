@@ -149,7 +149,7 @@ export const SkeletonThree = () => {
                 }}
                 id="gradient-3"
                 transition={{
-                  duration: Math.random() * (7 - 2) + 2,
+                  duration: 4,
                   ease: 'linear',
                   repeat: Infinity,
                 }}
