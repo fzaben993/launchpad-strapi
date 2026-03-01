@@ -23,7 +23,7 @@ export default async function SingleArticlePage(props: {
   }
 
   const localizedSlugs = article.localizations?.reduce(
-    (acc: Record<string, string>, localization: any) => {
+    (acc: Record<string, string>, localization: { locale: string; slug: string }) => {
       acc[localization.locale] = localization.slug;
       return acc;
     },

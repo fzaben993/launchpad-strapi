@@ -12,7 +12,7 @@ export const Heading = ({
   ...props
 }: {
   className?: string;
-  as?: any;
+  as?: React.ElementType<React.HTMLAttributes<HTMLHeadingElement>>;
   children: React.ReactNode;
   size?: 'sm' | 'md' | 'xl' | '2xl';
   props?: React.HTMLAttributes<HTMLHeadingElement>;

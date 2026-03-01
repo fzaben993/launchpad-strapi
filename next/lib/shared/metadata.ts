@@ -1,6 +1,19 @@
 import { strapiImage } from '../strapi/strapiImage';
 
-export function generateMetadataObject(seo: any) {
+export interface SEOData {
+  metaTitle?: string;
+  metaDescription?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  metaImage?: { url: string };
+  twitterCard?: string;
+  twitterTitle?: string;
+  twitterDescription?: string;
+  twitterImage?: string;
+  [key: string]: unknown;
+}
+
+export function generateMetadataObject(seo: SEOData | undefined | null) {
   return {
     title: seo?.metaTitle || 'Default Title', // Fallback to 'Default Title' if title is not provided
     description: seo?.metaDescription || 'Default Description', // Fallback to 'Default Description'

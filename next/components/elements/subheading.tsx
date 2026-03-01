@@ -11,7 +11,7 @@ export const Subheading = ({
   ...props
 }: {
   className?: string;
-  as?: any;
+  as?: React.ElementType<React.HTMLAttributes<HTMLHeadingElement>>;
   children: React.ReactNode;
   props?: React.HTMLAttributes<HTMLHeadingElement>;
 } & MotionProps &

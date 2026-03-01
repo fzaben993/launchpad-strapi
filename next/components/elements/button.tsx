@@ -30,7 +30,7 @@ export const Button: React.FC<ButtonProps> = ({
           : variant === 'muted'
             ? 'bg-neutral-800 relative z-10 hover:bg-neutral-900  border border-transparent text-white text-sm md:text-sm transition font-medium duration-200  rounded-md px-4 py-2  flex items-center justify-center shadow-[0px_1px_0px_0px_#FFFFFF20_inset]'
             : '';
-  const Element = Tag as any;
+  const Element = Tag as React.ElementType<React.HTMLAttributes<HTMLElement>>;
 
   return (
     <Element
