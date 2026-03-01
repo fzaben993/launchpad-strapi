@@ -11,8 +11,8 @@ import { useState } from 'react';
 
 import { LocaleSwitcher } from '../locale-switcher';
 import { NavbarItem } from './navbar-item';
-import { Button } from '@/components/elements/button';
 import { Logo } from '@/components/logo';
+import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 interface Props {
@@ -96,10 +96,11 @@ export const DesktopNavbar = ({
             variant={
               index === rightNavbarItems.length - 1 ? 'primary' : 'simple'
             }
-            as={Link}
-            href={`/${locale}${item.URL}`}
+            asChild
           >
-            {item.text}
+            <Link href={`/${locale}${item.URL}`}>
+              {item.text}
+            </Link>
           </Button>
         ))}
       </div>

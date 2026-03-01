@@ -6,7 +6,7 @@ import React from 'react';
 
 import { Container } from '../container';
 import { AmbientColor } from '../decorations/ambient-color';
-import { Button } from '../elements/button';
+import { Button } from '@/components/ui/button';
 
 export const CTA = ({
   heading,
@@ -39,13 +39,14 @@ export const CTA = ({
           {CTAs &&
             CTAs.map((cta, index) => (
               <Button
-                as={Link}
+                asChild
                 key={index}
-                href={`/${locale}${cta.URL}`}
                 variant={cta.variant}
                 className="py-3"
               >
-                {cta.text}
+                <Link href={`/${locale}${cta.URL}`}>
+                  {cta.text}
+                </Link>
               </Button>
             ))}
         </div>

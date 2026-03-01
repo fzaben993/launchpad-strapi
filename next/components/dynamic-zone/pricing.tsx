@@ -4,7 +4,7 @@ import { IconCheck, IconPlus, IconReceipt2 } from '@tabler/icons-react';
 import React from 'react';
 
 import { Container } from '../container';
-import { Button } from '../elements/button';
+import { Button } from '@/components/ui/button';
 import { Heading } from '../elements/heading';
 import { Subheading } from '../elements/subheading';
 import { FeatureIconContainer } from './features/feature-icon-container';

@@ -7,7 +7,7 @@ import {
 } from '@tabler/icons-react';
 import Link from 'next/link';
 
-import { Button } from '../elements/button';
+import { Button } from '@/components/ui/button';
 import ShootingStars from '@/components/decorations/shooting-star';
 import StarBackground from '@/components/decorations/star-background';
 import { AnimatedTooltip } from '@/components/ui/animated-tooltip';

@@ -6,7 +6,7 @@ import React from 'react';
 
 import ShootingStars from '../decorations/shooting-star';
 import StarBackground from '../decorations/star-background';
-import { Button } from '../elements/button';
+import { Button } from '@/components/ui/button';
 import { Heading } from '../elements/heading';
 import { Subheading } from '../elements/subheading';
 
@@ -50,11 +50,12 @@ export const Hero = ({
           CTAs.map((cta) => (
             <Button
               key={cta?.id}
-              as={Link}
-              href={`/${locale}${cta.URL}`}
+              asChild
               {...(cta.variant && { variant: cta.variant })}
             >
-              {cta.text}
+              <Link href={`/${locale}${cta.URL}`}>
+                {cta.text}
+              </Link>
             </Button>
           ))}
       </div>
