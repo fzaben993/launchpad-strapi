@@ -10,7 +10,7 @@ interface ButtonProps {
   children?: React.ReactNode;
   href?: LinkProps['href'];
   onClick?: () => void;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -41,7 +41,7 @@ export const Button: React.FC<ButtonProps> = ({
       )}
       {...props}
     >
-      {children ?? `Get Started`}
+      {children || `Get Started`}
     </Element>
   );
 };

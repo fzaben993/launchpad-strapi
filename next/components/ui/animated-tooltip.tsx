@@ -19,7 +19,7 @@ export const AnimatedTooltip = ({
     firstname: string;
     lastname: string;
     job: string;
-    image: any;
+    image: { url: string; alternativeText?: string };
   }[];
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -35,8 +35,9 @@ export const AnimatedTooltip = ({
     useTransform(x, [-100, 100], [-50, 50]),
     springConfig
   );
-  const handleMouseMove = (event: any) => {
-    const halfWidth = event.target.offsetWidth / 2;
+  const handleMouseMove = (event: React.MouseEvent<HTMLImageElement>) => {
+    const target = event.target as HTMLImageElement;
+    const halfWidth = target.offsetWidth / 2;
     x.set(event.nativeEvent.offsetX - halfWidth); // set the x value, which is then used in transform and rotate
   };
 
@@ -85,7 +86,7 @@ export const AnimatedTooltip = ({
             height={100}
             width={100}
             src={item?.image?.url}
-            alt={item?.image?.alternativeText}
+            alt={item?.image?.alternativeText || item?.firstname}
             className="object-cover !m-0 !p-0 object-top rounded-full h-14 w-14 border-2 group-hover:scale-105 group-hover:z-30 border-white  relative transition duration-500"
           />
         </div>

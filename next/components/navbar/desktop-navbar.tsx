@@ -26,7 +26,7 @@ interface Props {
     text: string;
     target?: string;
   }[];
-  logo: any;
+  logo: { image?: { url: string; alternativeText?: string } };
   locale: string;
 }
 

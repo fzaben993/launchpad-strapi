@@ -41,7 +41,7 @@ export default async function Blog(props: {
   );
 
   const localizedSlugs = pageData.localizations?.reduce(
-    (acc: Record<string, string>, localization: any) => {
+    (acc: Record<string, string>, localization: { locale: string }) => {
       acc[localization.locale] = 'blog';
       return acc;
     },

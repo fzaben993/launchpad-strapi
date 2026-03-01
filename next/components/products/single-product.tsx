@@ -52,7 +52,7 @@ export const SingleProduct = ({ product }: { product: Product }) => {
                   key={'product-image' + index}
                   className={cn(
                     'h-20 w-20 rounded-xl',
-                    activeThumbnail === image
+                    activeThumbnail === strapiImage(image.url)
                       ? 'border-2 border-neutral-200'
                       : 'border-2 border-transparent'
                   )}
@@ -79,7 +79,7 @@ export const SingleProduct = ({ product }: { product: Product }) => {
           <ul className="list-disc list-inside mb-6">
             {product.perks &&
               product.perks.map((perk, index) => (
-                <Step key={index}>{perk.text}</Step>
+                <Step key={index}>{perk.name}</Step>
               ))}
           </ul>
           <h3 className="text-sm font-medium text-neutral-400 mb-2">

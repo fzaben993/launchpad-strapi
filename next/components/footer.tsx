@@ -7,7 +7,14 @@ export const Footer = async ({
   data,
   locale,
 }: {
-  data: any;
+  data: {
+    logo?: { image?: { url: string; alternativeText?: string } };
+    description?: string;
+    copyright?: string;
+    internal_links?: { text: string; URL: string }[];
+    policy_links?: { text: string; URL: string }[];
+    social_media_links?: { text: string; URL: string }[];
+  } | null;
   locale: string;
 }) => {
   return (
@@ -63,9 +70,12 @@ export const Footer = async ({
             </div>
           </div>
           <div className="grid grid-cols-3 gap-10 items-start mt-10 md:mt-0">
-            <LinkSection links={data?.internal_links} locale={locale} />
-            <LinkSection links={data?.policy_links} locale={locale} />
-            <LinkSection links={data?.social_media_links} locale={locale} />
+            <LinkSection links={data?.internal_links || []} locale={locale} />
+            <LinkSection links={data?.policy_links || []} locale={locale} />
+            <LinkSection
+              links={data?.social_media_links || []}
+              locale={locale}
+            />
           </div>
         </div>
       </div>

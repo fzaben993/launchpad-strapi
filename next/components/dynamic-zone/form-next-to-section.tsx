@@ -21,7 +21,17 @@ export function FormNextToSection({
   heading: string;
   sub_heading: string;
   form: { inputs: { name: string; type: string; placeholder: string }[] };
-  section: { heading: string; sub_heading: string; users: { id: number; name: string; designation: string; image: unknown }[] };
+  section: {
+    heading: string;
+    sub_heading: string;
+    users: {
+      id: number;
+      firstname: string;
+      lastname: string;
+      job: string;
+      image: { url: string; alternativeText?: string };
+    }[];
+  };
   social_media_icon_links?: unknown;
 }) {
   const socials = [
@@ -63,42 +73,51 @@ export function FormNextToSection({
             <div>
               <form className="space-y-4">
                 {form &&
-                  form?.inputs?.map((input: { name: string; type: string; placeholder: string }, index: number) => (
-                    <div key={`form-input-${index}`}>
-                      {input.type !== 'submit' && (
-                        <label
-                          htmlFor="name"
-                          className="block text-sm font-medium leading-6 text-neutral-400 "
-                        >
-                          {input.name}
-                        </label>
-                      )}
-
-                      <div className="mt-2">
-                        {input.type === 'textarea' ? (
-                          <textarea
-                            rows={5}
-                            id="message"
-                            placeholder={input.placeholder}
-                            className="block w-full bg-neutral-900  px-4 rounded-md border-0 py-1.5  shadow-aceternity text-neutral-100 placeholder:text-gray-400 focus:ring-2 focus:ring-neutral-400 focus:outline-none sm:text-sm sm:leading-6 "
-                          />
-                        ) : input.type === 'submit' ? (
-                          <div>
-                            <Button className="w-full mt-6">
-                              {input.name}
-                            </Button>
-                          </div>
-                        ) : (
-                          <input
-                            id="name"
-                            type={input.type}
-                            placeholder={input.placeholder}
-                            className="block w-full bg-neutral-900 px-4 rounded-md border-0 py-1.5  shadow-aceternity text-neutral-100 placeholder:text-gray-400 focus:ring-2 focus:ring-neutral-400 focus:outline-none sm:text-sm sm:leading-6 "
-                          />
+                  form?.inputs?.map(
+                    (
+                      input: {
+                        name: string;
+                        type: string;
+                        placeholder: string;
+                      },
+                      index: number
+                    ) => (
+                      <div key={`form-input-${index}`}>
+                        {input.type !== 'submit' && (
+                          <label
+                            htmlFor="name"
+                            className="block text-sm font-medium leading-6 text-neutral-400 "
+                          >
+                            {input.name}
+                          </label>
                         )}
+
+                        <div className="mt-2">
+                          {input.type === 'textarea' ? (
+                            <textarea
+                              rows={5}
+                              id="message"
+                              placeholder={input.placeholder}
+                              className="block w-full bg-neutral-900  px-4 rounded-md border-0 py-1.5  shadow-aceternity text-neutral-100 placeholder:text-gray-400 focus:ring-2 focus:ring-neutral-400 focus:outline-none sm:text-sm sm:leading-6 "
+                            />
+                          ) : input.type === 'submit' ? (
+                            <div>
+                              <Button className="w-full mt-6">
+                                {input.name}
+                              </Button>
+                            </div>
+                          ) : (
+                            <input
+                              id="name"
+                              type={input.type}
+                              placeholder={input.placeholder}
+                              className="block w-full bg-neutral-900 px-4 rounded-md border-0 py-1.5  shadow-aceternity text-neutral-100 placeholder:text-gray-400 focus:ring-2 focus:ring-neutral-400 focus:outline-none sm:text-sm sm:leading-6 "
+                            />
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    )
+                  )}
               </form>
             </div>
           </div>

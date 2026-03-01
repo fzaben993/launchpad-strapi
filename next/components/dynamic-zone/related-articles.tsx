@@ -3,7 +3,6 @@
 import React from 'react';
 
 import { BlogCardVertical } from '../blog-card';
-
 import type { Article } from '@/types/types';
 
 export const RelatedArticles = ({

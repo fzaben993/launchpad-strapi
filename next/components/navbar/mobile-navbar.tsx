@@ -22,7 +22,7 @@ interface Props {
     text: string;
     target?: string;
   }[];
-  logo: any;
+  logo: { image?: { url: string; alternativeText?: string } };
   locale: string;
 }
 
@@ -74,37 +74,51 @@ export const MobileNavbar = ({
             </div>
           </div>
           <div className="flex flex-col items-start justify-start gap-[14px] px-8">
-            {leftNavbarItems.map((navItem: any, idx: number) => (
-              <>
-                {navItem.children && navItem.children.length > 0 ? (
-                  <>
-                    {navItem.children.map((childNavItem: any, idx: number) => (
-                      <Link
-                        key={`link=${idx}`}
-                        href={`/${locale}${childNavItem.URL}`}
-                        onClick={() => setOpen(false)}
-                        className="relative max-w-[15rem] text-left text-2xl"
-                      >
-                        <span className="block text-white">
-                          {childNavItem.text}
-                        </span>
-                      </Link>
-                    ))}
-                  </>
-                ) : (
-                  <Link
-                    key={`link=${idx}`}
-                    href={`/${locale}${navItem.URL}`}
-                    onClick={() => setOpen(false)}
-                    className="relative"
-                  >
-                    <span className="block text-[26px] text-white">
-                      {navItem.text}
-                    </span>
-                  </Link>
-                )}
-              </>
-            ))}
+            {leftNavbarItems.map(
+              (
+                navItem: {
+                  text: string;
+                  URL: string;
+                  children?: { text: string; URL: string }[];
+                },
+                idx: number
+              ) => (
+                <div key={`nav-${idx}`}>
+                  {navItem.children && navItem.children.length > 0 ? (
+                    <>
+                      {navItem.children.map(
+                        (
+                          childNavItem: { text: string; URL: string },
+                          childIdx: number
+                        ) => (
+                          <Link
+                            key={`link=${childIdx}`}
+                            href={`/${locale}${childNavItem.URL}`}
+                            onClick={() => setOpen(false)}
+                            className="relative max-w-[15rem] text-left text-2xl"
+                          >
+                            <span className="block text-white">
+                              {childNavItem.text}
+                            </span>
+                          </Link>
+                        )
+                      )}
+                    </>
+                  ) : (
+                    <Link
+                      key={`link=${idx}`}
+                      href={`/${locale}${navItem.URL}`}
+                      onClick={() => setOpen(false)}
+                      className="relative"
+                    >
+                      <span className="block text-[26px] text-white">
+                        {navItem.text}
+                      </span>
+                    </Link>
+                  )}
+                </div>
+              )
+            )}
           </div>
           <div className="flex flex-row w-full items-start gap-2.5  px-8 py-4 ">
             {rightNavbarItems.map((item, index) => (

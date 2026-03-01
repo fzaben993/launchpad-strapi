@@ -12,7 +12,7 @@ export const Subheading = ({
 }: {
   className?: string;
   as?: any;
-  children: any;
+  children: React.ReactNode;
   props?: React.HTMLAttributes<HTMLHeadingElement>;
 } & MotionProps &
   React.HTMLAttributes<HTMLHeadingElement>) => {
@@ -24,7 +24,7 @@ export const Subheading = ({
         className
       )}
     >
-      <Balancer>{children}</Balancer>
+      <Balancer>{children || ' '}</Balancer>
     </Tag>
   );
 };

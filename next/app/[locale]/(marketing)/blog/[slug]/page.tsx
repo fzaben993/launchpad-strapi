@@ -10,7 +10,7 @@ export default async function SingleArticlePage(props: {
   params: Promise<{ slug: string; locale: string }>;
 }) {
   const params = await props.params;
-  const [article] = await fetchCollectionType<any[]>('articles', {
+  const [article] = await fetchCollectionType<Article[]>('articles', {
     filters: {
       slug: {
         $eq: params.slug,
@@ -32,7 +32,7 @@ export default async function SingleArticlePage(props: {
 
   return (
     <BlogLayout article={article} locale={params.locale}>
-      <ClientSlugHandler localizedSlugs={localizedSlugs} />
+      <ClientSlugHandler localizedSlugs={localizedSlugs || {}} />
       <BlocksRenderer content={article.content} />
     </BlogLayout>
   );

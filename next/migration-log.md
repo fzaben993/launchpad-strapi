@@ -61,7 +61,9 @@ This document details the migration from Next.js 14 to Next.js 15.5.0 and React 
 - **Solution**: Added graceful error handling with fallback data:
   ```tsx
   if (!response.ok) {
-    console.error(`Failed to fetch data from Strapi (url=${url.toString()}, status=${response.status})`);
+    console.error(
+      `Failed to fetch data from Strapi (url=${url.toString()}, status=${response.status})`
+    );
     return spreadData ? null : { data: [] };
   }
   ```
