@@ -10,15 +10,11 @@ import { Subheading } from '../elements/subheading';
 import { FeatureIconContainer } from './features/feature-icon-container';
 import { cn } from '@/lib/utils';
 
-type Perks = {
-  [key: string]: string;
-};
+type Perks = Record<string, string>;
 
-type CTA = {
-  [key: string]: string;
-};
+type CTA = Record<string, string>;
 
-type Plan = {
+interface Plan {
   name: string;
   price: number;
   perks: Perks[];
@@ -27,7 +23,7 @@ type Plan = {
   number: string;
   featured?: boolean;
   CTA?: CTA | undefined;
-};
+}
 
 export const Pricing = ({
   heading,
@@ -36,7 +32,7 @@ export const Pricing = ({
 }: {
   heading: string;
   sub_heading: string;
-  plans: any[];
+  plans: Plan[];
 }) => {
   const onClick = (plan: Plan) => {
     console.log('click', plan);

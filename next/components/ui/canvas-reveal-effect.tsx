@@ -177,12 +177,10 @@ const DotMatrix: React.FC<DotMatrixProps> = ({
   );
 };
 
-type Uniforms = {
-  [key: string]: {
+type Uniforms = Record<string, {
     value: number[] | number[][] | number;
     type: string;
-  };
-};
+  }>;
 const ShaderMaterial = ({
   source,
   uniforms,
@@ -301,11 +299,9 @@ const Shader: React.FC<ShaderProps> = ({ source, uniforms, maxFps = 60 }) => {
 };
 interface ShaderProps {
   source: string;
-  uniforms: {
-    [key: string]: {
+  uniforms: Record<string, {
       value: number[] | number[][] | number;
       type: string;
-    };
-  };
+    }>;
   maxFps?: number;
 }

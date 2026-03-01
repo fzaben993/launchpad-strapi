@@ -13,7 +13,7 @@ export class StrapiError extends Error {
   }
 }
 
-const createClient = (config?: Omit<Config, 'baseURL'>, isDraftMode: boolean = false) => {
+const createClient = (config?: Omit<Config, 'baseURL'>, isDraftMode = false) => {
   return strapi({
     baseURL: `${process.env.NEXT_PUBLIC_API_URL ?? ''}/api`,
     headers: {

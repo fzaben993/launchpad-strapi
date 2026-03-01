@@ -15,7 +15,7 @@ interface Props {
   locale: string;
 }
 
-const componentMapping: { [key: string]: any } = {
+const componentMapping: Record<string, React.ComponentType<any>> = {
   'dynamic-zone.hero': dynamic(() => import('./hero').then((mod) => mod.Hero)),
   'dynamic-zone.features': dynamic(() =>
     import('./features').then((mod) => mod.Features)

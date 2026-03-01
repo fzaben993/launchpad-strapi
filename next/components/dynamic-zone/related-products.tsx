@@ -4,6 +4,8 @@ import React from 'react';
 
 import { ProductItems } from '@/components/products/product-items';
 
+import type { Product } from '@/types/types';
+
 export const RelatedProducts = ({
   heading,
   sub_heading,
@@ -12,7 +14,7 @@ export const RelatedProducts = ({
 }: {
   heading: string;
   sub_heading: string;
-  products: any[];
+  products: Product[];
   locale: string;
 }) => {
   return (

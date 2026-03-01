@@ -6,12 +6,11 @@ import { Heading } from '@/components/elements/heading';
 
 export const FAQ = ({
   heading,
-  sub_heading,
   faqs,
 }: {
   heading: string;
-  sub_heading: string;
-  faqs: any[];
+  sub_heading?: string;
+  faqs: { question: string; answer: string }[];
 }) => {
   return (
     <Container className="flex flex-col items-center justify-between pb-20">

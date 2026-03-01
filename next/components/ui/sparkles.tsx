@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 
 import { cn } from '@/lib/utils';
 
-type ParticlesProps = {
+interface ParticlesProps {
   id?: string;
   className?: string;
   background?: string;
@@ -19,7 +19,7 @@ type ParticlesProps = {
   speed?: number;
   particleColor?: string;
   particleDensity?: number;
-};
+}
 export const SparklesCore = (props: ParticlesProps) => {
   const {
     id,

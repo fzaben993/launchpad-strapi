@@ -16,7 +16,7 @@ export const HowItWorks = ({
 }: {
   heading: string;
   sub_heading: string;
-  steps: any;
+  steps: { title: string; description: string }[];
 }) => {
   return (
     <div>

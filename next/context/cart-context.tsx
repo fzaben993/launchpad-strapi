@@ -4,19 +4,19 @@ import React, { createContext, useCallback, useContext, useState } from 'react';
 
 import { Product } from '@/types/types';
 
-type CartItem = {
+interface CartItem {
   product: Product;
   quantity: number;
-};
+}
 
-type CartContextType = {
+interface CartContextType {
   items: CartItem[];
   updateQuantity: (product: Product, quantity: number) => void;
   addToCart: (product: Product) => void;
   removeFromCart: (productId: number) => void;
   clearCart: () => void;
   getCartTotal: () => number;
-};
+}
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 

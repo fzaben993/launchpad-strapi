@@ -17,13 +17,12 @@ export function FormNextToSection({
   sub_heading,
   form,
   section,
-  social_media_icon_links,
 }: {
   heading: string;
   sub_heading: string;
-  form: any;
-  section: any;
-  social_media_icon_links: any;
+  form: { inputs: { name: string; type: string; placeholder: string }[] };
+  section: { heading: string; sub_heading: string; users: { id: number; name: string; designation: string; image: unknown }[] };
+  social_media_icon_links?: unknown;
 }) {
   const socials = [
     {
@@ -64,7 +63,7 @@ export function FormNextToSection({
             <div>
               <form className="space-y-4">
                 {form &&
-                  form?.inputs?.map((input: any, index: number) => (
+                  form?.inputs?.map((input: { name: string; type: string; placeholder: string }, index: number) => (
                     <div key={`form-input-${index}`}>
                       {input.type !== 'submit' && (
                         <label

@@ -7,7 +7,17 @@ import { SparklesCore } from '../../ui/sparkles';
 import { StrapiImage } from '@/components/ui/strapi-image';
 import { cn } from '@/lib/utils';
 
-export const TestimonialsSlider = ({ testimonials }: { testimonials: any }) => {
+interface Testimonial {
+  text: string;
+  user: {
+    firstname: string;
+    lastname: string;
+    job: string;
+    image: { url: string };
+  };
+}
+
+export const TestimonialsSlider = ({ testimonials }: { testimonials: Testimonial[] }) => {
   const [active, setActive] = useState<number>(0);
   const [autorotate, setAutorotate] = useState<boolean>(true);
   const testimonialsRef = useRef<HTMLDivElement>(null);
@@ -67,7 +77,7 @@ export const TestimonialsSlider = ({ testimonials }: { testimonials: any }) => {
             {/* Testimonial image */}
             <div className="relative h-40 [mask-image:_linear-gradient(0deg,transparent,#FFFFFF_30%,#FFFFFF)] md:[mask-image:_linear-gradient(0deg,transparent,#FFFFFF_40%,#FFFFFF)]">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[480px] h-[480px] -z-10 pointer-events-none before:rounded-full rounded-full before:absolute before:inset-0 before:bg-gradient-to-b before:from-neutral-400/20 before:to-transparent before:to-20% after:rounded-full after:absolute after:inset-0 after:bg-neutral-900 after:m-px before:-z-20 after:-z-20">
-                {slicedTestimonials.map((item: any, index: number) => (
+                {slicedTestimonials.map((item: Testimonial, index: number) => (
                   <Transition
                     key={index}
                     show={active === index}
@@ -95,7 +105,7 @@ export const TestimonialsSlider = ({ testimonials }: { testimonials: any }) => {
             {/* Text */}
             <div className="mb-10 transition-all duration-150 delay-300 ease-in-out px-8 sm:px-6">
               <div className="relative flex flex-col" ref={testimonialsRef}>
-                {slicedTestimonials.map((item: any, index: number) => (
+                {slicedTestimonials.map((item: Testimonial, index: number) => (
                   <Transition
                     key={index}
                     show={active === index}
@@ -116,7 +126,7 @@ export const TestimonialsSlider = ({ testimonials }: { testimonials: any }) => {
             </div>
             {/* Buttons */}
             <div className="flex flex-wrap justify-center -m-1.5 px-8 sm:px-6">
-              {slicedTestimonials.map((item: any, index: number) => (
+              {slicedTestimonials.map((item: Testimonial, index: number) => (
                 <button
                   className={cn(
                     `px-2 py-1 rounded-full m-1.5 text-xs border border-transparent text-neutral-300 transition duration-150 ease-in-out [background:linear-gradient(theme(colors.neutral.900),_theme(colors.neutral.900))_padding-box,_conic-gradient(theme(colors.neutral.400),_theme(colors.neutral.700)_25%,_theme(colors.neutral.700)_75%,_theme(colors.neutral.400)_100%)_border-box] relative before:absolute before:inset-0 before:bg-neutral-800/30 before:rounded-full before:pointer-events-none ${

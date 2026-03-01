@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import React from 'react';
 
-import { Cover } from '../decorations/cover';
 import ShootingStars from '../decorations/shooting-star';
 import StarBackground from '../decorations/star-background';
 import { Button } from '../elements/button';
@@ -19,7 +18,7 @@ export const Hero = ({
 }: {
   heading: string;
   sub_heading: string;
-  CTAs: any[];
+  CTAs: { id: number; URL: string; text: string; variant?: 'primary' | 'outline' | 'simple' | 'muted' }[];
   locale: string;
 }) => {
   return (

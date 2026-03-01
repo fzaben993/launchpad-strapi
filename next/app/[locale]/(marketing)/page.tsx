@@ -44,7 +44,7 @@ export default async function HomePage(props: {
       return acc;
     },
     { [params.locale]: '' }
-  );
+  ) || { [params.locale]: '' };
 
   return (
     <>

@@ -17,7 +17,7 @@ const RING_PROPAGATION_SPEED = 3;
 const aspect = 1.2;
 const cameraZ = 300;
 
-type Position = {
+interface Position {
   order: number;
   startLat: number;
   startLng: number;
@@ -25,9 +25,9 @@ type Position = {
   endLng: number;
   arcAlt: number;
   color: string;
-};
+}
 
-export type GlobeConfig = {
+export interface GlobeConfig {
   pointSize?: number;
   globeColor?: string;
   showAtmosphere?: boolean;
@@ -51,7 +51,7 @@ export type GlobeConfig = {
   };
   autoRotate?: boolean;
   autoRotateSpeed?: number;
-};
+}
 
 interface WorldProps {
   globeConfig: GlobeConfig;
@@ -122,7 +122,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
   const _buildData = () => {
     const arcs = data;
-    let points = [];
+    const points = [];
 
     if (!arcs || arcs.length === 0) {
       setGlobeData([]);
@@ -226,7 +226,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
         startAnimation();
       }, 100);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [globeData, isAnimationStarted]);
 
   const startAnimation = () => {
@@ -342,7 +342,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     return () => {
       clearInterval(interval);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [globeRef.current, globeData]);
 
   // Prevent hydration mismatch by only rendering on client
@@ -406,12 +406,12 @@ export function World(props: WorldProps) {
 }
 
 export function hexToRgb(hex: string) {
-  var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
   hex = hex.replace(shorthandRegex, function (m, r, g, b) {
     return r + r + g + g + b + b;
   });
 
-  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result
     ? {
         r: parseInt(result[1], 16),
